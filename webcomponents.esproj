@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.45-alpha">
+  <PropertyGroup>
+    <StartupCommand>pnpm dev</StartupCommand>
+    <JavaScriptTestRoot>.\</JavaScriptTestRoot>
+    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+    <BuildCommand>pnpm build</BuildCommand>
+    <ProductionBuildCommand>pnpm build</ProductionBuildCommand>
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
+    <CleanCommand>pnpm clean</CleanCommand>
+  </PropertyGroup>
+  <Target Name="Update" BeforeTargets="BeforeBuild">
+    <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Command="pnpm install" />
+  </Target>
+</Project>

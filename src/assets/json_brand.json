@@ -1,0 +1,14 @@
+[
+    {
+      "name": "brand1",
+      "value": 50
+    },
+    {
+        "name": "brand2",
+        "value": 30
+    },
+    {
+        "name": "brand3",
+        "value": 20
+    }
+]

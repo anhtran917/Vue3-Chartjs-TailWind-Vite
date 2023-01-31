@@ -1,0 +1,31 @@
+[
+    {
+      "name": "subbrand1",
+      "value": 50
+    },
+    {
+        "name": "subbrand2",
+        "value": 30
+    },
+    {
+        "name": "subbrand3",
+        "value": 20
+    },
+    {
+        "name": "subbrand4",
+        "value": 40
+    },
+    {
+        "name": "subbrand5",
+        "value": 10
+    },
+    {
+        "name": "subbrand6",
+        "value": 100
+    },
+    {
+        "name": "subbrand7",
+        "value": 7
+    }
+
+]
