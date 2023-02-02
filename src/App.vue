@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid box-border">
     <div class="row flex-nowrap">
       <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

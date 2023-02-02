@@ -1,0 +1,30 @@
+{
+    "carddata1": {
+        "title": "Totla Revenue To Date",
+        "statistic": "11.8m",
+        "percentChange": 2.3,
+        "percentExplainer": "than last year",
+        "risingStatus": 1
+    },
+    "carddata2": {
+        "title": "Current Month",
+        "statistic": "5.5m",
+        "percentChange": 2.1,
+        "percentExplainer": "than last month",
+        "risingStatus": 1
+    },
+    "carddata3": {
+        "title": "New/Lost Locations",
+        "statistic": "1554/1269",
+        "percentChange": 1.8,
+        "percentExplainer": "than last year",
+        "risingStatus": 0
+    },
+    "carddata4": {
+        "title": "Average SKU per Location",
+        "statistic": "11.75",
+        "percentChange": 1.3,
+        "percentExplainer": "than last year",
+        "risingStatus": 1
+    }
+}

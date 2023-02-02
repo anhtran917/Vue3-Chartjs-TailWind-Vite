@@ -1,26 +1,54 @@
-[
-    {
-      "name": "formular1",
-      "value": 50
+{
+    "dog":{
+        "formula":[
+        {
+        "name": "formula1(dog)",
+        "value": 50
+        },
+        {
+            "name": "formula2(dog)",
+            "value": 30
+        },
+        {
+            "name": "formula3(dog)",
+            "value": 5
+        }
+        ]
     },
-    {
-        "name": "formular2",
-        "value": 30
+    "cat":{
+        "formula":[
+        {
+        "name": "formula1(cat)",
+        "value": 50
+        },
+        {
+            "name": "formula3(cat)",
+            "value": 5
+        }
+        ]
     },
-    {
-        "name": "formular3",
-        "value": 5
-    },
-    {
-        "name": "formular4",
-        "value": 70
-    },
-    {
-        "name": "formular5",
-        "value": 15
-    },
-    {
-        "name": "formular6",
-        "value": 5
+    "other":{
+        "formula":[
+        {
+        "name": "formula1(other)",
+        "value": 50
+        },
+        {
+            "name": "formula2(other)",
+            "value": 30
+        },
+        {
+            "name": "formula3(other)",
+            "value": 5
+        },
+        {
+            "name": "formula4(other)",
+            "value": 5
+        },
+        {
+            "name": "formula5(other)",
+            "value": 5
+        }
+        ]
     }
-]
+}

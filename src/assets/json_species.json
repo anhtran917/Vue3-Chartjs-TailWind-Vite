@@ -7,4 +7,9 @@
         "name": "cat",
         "value": 20
     }
+    ,
+    {
+        "name": "other",
+        "value": 50
+    }
 ]

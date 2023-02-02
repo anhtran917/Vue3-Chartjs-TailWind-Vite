@@ -1,0 +1,50 @@
+[
+    {
+      "Chain ID": "A4PET",
+      "Chain Name": "All 4 Pets",
+      "Location Count": 3,
+      "SWP Dollars": 1177.88
+    },
+    {
+      "Chain ID": "ACE",
+      "Chain Name": "Ace Hardware",
+      "Location Count": 64,
+      "SWP Dollars": 72897.46
+    },
+    {
+      "Chain ID": "ACHAG",
+      "Chain Name": "Achille Agway",
+      "Location Count": 4,
+      "SWP Dollars": 208.27
+    },
+    {
+      "Chain ID": "AFF",
+      "Chain Name": "Adams Fairacre Farms",
+      "Location Count": 2,
+      "SWP Dollars": 93.59
+    },
+    {
+      "Chain ID": "AFPS",
+      "Chain Name": "Agri Feed Pet Supply Knoxville",
+      "Location Count": 1,
+      "SWP Dollars": 1042.28
+    },
+    {
+        "Chain ID": "AFPWS",
+        "Chain Name": "Agri Feed Pet Supply Knoxville1",
+        "Location Count": 1,
+        "SWP Dollars": 1042.28
+    },
+    {
+        "Chain ID": "AFPVS",
+        "Chain Name": "Agri Feed Pet Supply Knoxville2",
+        "Location Count": 1,
+        "SWP Dollars": 1042.28
+    },
+    {
+        "Chain ID": "AFPXS",
+        "Chain Name": "Agri Feed Pet Supply Knoxville3",
+        "Location Count": 1,
+        "SWP Dollars": 1042.28
+    }
+]

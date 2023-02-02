@@ -1,14 +1,62 @@
-[
-    {
-      "name": "brand1",
-      "value": 50
+{
+    "dog":{
+        "brand":[{
+        "name": "brand1(dog)",
+        "value": 50
+        },
+        {
+            "name": "brand2(dog)",
+            "value": 30
+        },
+        {
+            "name": "brand3(dog)",
+            "value": 20
+        }]
     },
-    {
-        "name": "brand2",
-        "value": 30
+    "cat":{
+        "brand":[{
+        "name": "brand1(cat)",
+        "value": 50
+        },
+        {
+            "name": "brand2(cat)",
+            "value": 30
+        },
+        {
+            "name": "brand3(cat)",
+            "value": 20
+        }
+        ,
+        {
+            "name": "brand4(cat)",
+            "value": 20
+        }
+    ]
     },
-    {
-        "name": "brand3",
-        "value": 20
+    "other":{
+        "brand":[{
+        "name": "brand1(other)",
+        "value": 50
+        },
+        {
+            "name": "brand2(other)",
+            "value": 30
+        },
+        {
+            "name": "brand3(other)",
+            "value": 20
+        }
+        ,
+        {
+            "name": "brand4(other)",
+            "value": 20
+        }
+        ,
+        {
+            "name": "brand5(other)",
+            "value": 20
+        }
+    ]
     }
-]
+
+}

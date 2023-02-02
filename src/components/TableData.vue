@@ -2,14 +2,17 @@
     <div class="flex flex-col">
         <div class="overflow-x-auto">
             <div class="py-3 pl-2 float-left">
-                <div class="relative max-w-xs">
+                <div class="relative flex rounded-md shadow-sm">
                     <label for="search" class="sr-only"> Search </label>
                     <input
                         type="text"
                         name="search"
-                        class="block w-full p-3 pl-10 text-sm border-gray-200 rounded-md focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400"
+                        class="py-3 px-4 pl-11 block w-full border-gray-200 shadow-sm rounded-l-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                         placeholder="Search..."
+                        v-model="searchText"
+                        @keyup="searchTable()"
                     />
+                    <button type="button" class="py-3 px-4 inline-flex flex-shrink-0 justify-center items-center rounded-r-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:z-10 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm" @click="clearSearch()">Clear</button>
                     <div
                         class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
                     >
@@ -49,424 +52,41 @@
                                 <th
                                     scope="col"
                                     class="flex items-center px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                                    @click="sortTable1()"
                                 >
-                                    name
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-4 h-4 text-gray-500"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            d="M17 13l-5 5m0 0l-5-5m5 5V6"
-                                        />
-                                    </svg>
+                                    Chain Id
                                 </th>
                                 <th
                                     scope="col"
                                     class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                                    @click="sortTable2()"
                                 >
                                     <span class="inline-flex items-center">
-                                        position
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="w-4 h-4"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M7 11l5-5m0 0l5 5m-5-5v12"
-                                            />
-                                        </svg>
+                                        Chain Name
                                     </span>
                                 </th>
                                 <th
                                     scope="col"
                                     class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                                    @click="sortTable3()"
                                 >
                                     <span class="inline-flex items-center">
-                                        office
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="w-4 h-4 text-gray-500"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M17 13l-5 5m0 0l-5-5m5 5V6"
-                                            />
-                                        </svg>
+                                        Location Count
                                     </span>
                                 </th>
                                 <th
                                     scope="col"
                                     class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                                    @click="sortTable4()"
                                 >
                                     <span class="inline-flex items-center">
-                                        StartDate
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="w-4 h-4 text-gray-500"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M17 13l-5 5m0 0l-5-5m5 5V6"
-                                            />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
-                                >
-                                    <span class="inline-flex items-center">
-                                        Salary
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="w-4 h-4 text-gray-500"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M17 13l-5 5m0 0l-5-5m5 5V6"
-                                            />
-                                        </svg>
-                                    </span>
-                                </th>
-                                <th
-                                    scope="col"
-                                    class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
-                                >
-                                    <span class="inline-flex items-center">
-                                        age
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            class="w-4 h-4 text-gray-500"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                d="M17 13l-5 5m0 0l-5-5m5 5V6"
-                                            />
-                                        </svg>
+                                        SWP Dollars
                                     </span>
                                 </th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-200">
-                            <tr class="">
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
-                                >
-                                    Tiger Nihole
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    System office
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    Edinbur
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    2000/2/3
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    $42330
-                                </td>
-                                <td
-                                    class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
-                                >
-                                    43
-                                </td>
-                            </tr>
+                        <tbody v-for="item in items" :key="item.ChainID" class="divide-y divide-gray-200">
+                            <MyTr :ChainID="item.ChainID" :ChainName="item.ChainName" :LocationCount="item.LocationCount" :SWPDollars= "item.SWPDollars"></MyTr>
                         </tbody>
                     </table>
                 </div>
@@ -475,6 +95,120 @@
     </div>
 </template>
 
+<script lang="ts">
+import MyTr from './MyTr.vue'
+import jsonTableData from '../assets/json_table.json'
+export default {
+  name: "TableData",
+  props: {
+
+  },
+  data() {
+    return {
+      items: [
+        {
+            ChainID: "" as string,
+            ChainName: "" as string,
+            LocationCount: 0 as Number,
+            SWPDollars: 0 as Number,
+        }
+      ],
+      searched_items: [
+        {
+            ChainID: "" as string,
+            ChainName: "" as string,
+            LocationCount: 0 as Number,
+            SWPDollars: 0 as Number,
+        }
+      ],
+      jsonTable: jsonTableData,
+      tableData1: [],
+      searchText: "",
+      sortKey: 0,
+    }
+  },
+  components: {
+    MyTr,
+  },
+  created(){
+    this.initTable();
+    // this.searchTable();
+  },
+  methods: {
+        initTable(){
+            this.items=[];
+            for(var i=0;i<this.jsonTable.length;i++){
+                this.items.push({
+                    ChainID: jsonTableData[i]['Chain ID'],
+                    ChainName: jsonTableData[i]['Chain Name'],
+                    LocationCount: jsonTableData[i]['SWP Dollars'],
+                    SWPDollars: jsonTableData[i]['SWP Dollars'],
+                });
+            }
+        },
+        searchTable(){
+            this.initTable();
+            const key = this.searchText;
+            this.searched_items = this.items.filter(function(item) {
+                return item.ChainName.toUpperCase().includes(key.toUpperCase()) || item.ChainID.toUpperCase().includes(key.toUpperCase());
+            });
+            this.items = this.searched_items;
+        },
+        sortTable1() {
+            if(this.sortKey==0){
+                this.items.sort(function (x, y) {
+                let a = x.ChainID.toUpperCase(),
+                b = y.ChainID.toUpperCase();
+                return a == b ? 0 : a > b ? 1 : -1;
+            });
+            this.sortKey = 1;
+            } else {
+                this.items.reverse();
+                this.sortKey = 0;
+            }
+        },
+        sortTable2() {
+            if(this.sortKey==0){
+                this.items.sort(function (x, y) {
+                let a = x.ChainName.toUpperCase(),
+                b = y.ChainName.toUpperCase();
+                return a == b ? 0 : a > b ? 1 : -1;
+            });
+            this.sortKey = 1;
+            } else {
+                this.items.reverse();
+                this.sortKey = 0;
+            }
+        },
+        sortTable3() {
+            if(this.sortKey==0){
+                this.items.sort(function (x, y) {
+                return x.LocationCount - y.LocationCount;
+            });
+            this.sortKey = 1;
+            } else {
+                this.items.reverse();
+                this.sortKey = 0;
+            }
+        },
+        sortTable4() {
+            if(this.sortKey==0){
+                this.items.sort(function (x, y) {
+                return x.SWPDollars - y.SWPDollars;
+            });
+            this.sortKey = 1;
+            } else {
+                this.items.reverse();
+                this.sortKey = 0;
+            }
+        },
+        clearSearch(){
+            document.location.reload();
+        },
+    },
+  }
+
+</script>
 <style>
     #customers tbody tr:hover {
         background-color: #ddd;
